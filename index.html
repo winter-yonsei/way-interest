@@ -91,25 +91,31 @@
 
   /* ── Desktop: 2 columns ── */
   @media (min-width: 1024px) {
-    .page {
-      grid-template-columns: 1fr 1fr;
-      padding: 0 48px;
-      min-height: 100vh;
-    }
-    .left {
-      padding: 80px 60px 80px 0;
-      border-right: 1px solid var(--border);
-      border-bottom: none;
-      min-height: 100vh;
-    }
-    .right {
-      padding: 80px 0 80px 60px;
-    }
-    .card { padding: 48px; }
-    .sub { font-size: 15px; }
-    .card-sub { font-size: 13px; }
-    .consent-label span { font-size: 12px; }
+  .page {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 48px;
+    min-height: 100vh;
+    max-width: 1160px;
   }
+  .left {
+    padding: 80px 60px 80px 0;
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+    min-height: 100vh;
+    max-width: 580px;
+  }
+  .right {
+    padding: 80px 0 80px 60px;
+    max-width: 580px;
+  }
+  .card {
+    padding: 48px;
+    max-width: 480px;
+  }
+  .sub { font-size: 15px; }
+  .card-sub { font-size: 13px; }
+  .consent-label span { font-size: 12px; }
+}
 
   /* ── Logo ── */
   .logo-area {
