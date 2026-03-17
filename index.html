@@ -524,7 +524,10 @@
 
 <!-- Form submission -->
 <script>
-document.getElementById('interestForm').addEventListener('submit', function(e) {
+  // ▼ Apps Script 배포 URL로 교체해주세요
+  const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_DEPLOYMENT_URL_HERE';
+
+document.getElementById('interestForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const email      = document.getElementById('email').value.trim();
   const university = document.getElementById('university').value.trim();
@@ -543,25 +546,28 @@ document.getElementById('interestForm').addEventListener('submit', function(e) {
     return;
   }
 
-  google.script.run
-    .withSuccessHandler(function(result) {
-      btn.disabled = false;
-      btn.classList.remove('loading');
-      if (result && result.success) {
-        document.getElementById('interestForm').style.display = 'none';
-        document.getElementById('successPanel').style.display = 'block';
-      } else {
-        errorMsg.textContent = (result&&result.message) ? result.message : 'Something went wrong — please try again.';
-        errorMsg.style.display = 'block';
-      }
-    })
-    .withFailureHandler(function() {
-      btn.disabled = false;
-      btn.classList.remove('loading');
-      errorMsg.textContent = 'Connection error — please try again.';
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, university }),
+    });
+    const result = await res.json();
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    if (result && result.success) {
+      document.getElementById('interestForm').style.display = 'none';
+      document.getElementById('successPanel').style.display = 'block';
+    } else {
+      errorMsg.textContent = (result && result.message) ? result.message : 'Something went wrong — please try again.';
       errorMsg.style.display = 'block';
-    })
-    .submitInterest({ email: email, university: university });
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    errorMsg.textContent = 'Connection error — please try again.';
+    errorMsg.style.display = 'block';
+  }
 });
 </script>
 
