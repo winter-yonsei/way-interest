@@ -549,7 +549,6 @@ document.getElementById('interestForm').addEventListener('submit', async functio
   try {
     const res = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, university }),
     });
     const result = await res.json();
