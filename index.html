@@ -27,8 +27,8 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    max-width: 100vw;   /* ← 추가 */
-    width: 100%;        /* ← 추가 */
+    max-width: 100vw;
+    width: 100%;
   }
 
   /* Snowflakes */
@@ -62,7 +62,7 @@
     position: relative; z-index: 2;
     display: grid;
     grid-template-columns: 1fr;
-    max-width: 100vw;    /* ← 변경 */
+    max-width: 100vw;
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
@@ -91,31 +91,28 @@
 
   /* ── Desktop: 2 columns ── */
   @media (min-width: 1024px) {
-  .page {
-    grid-template-columns: 1fr 1fr;
-    padding: 0 48px;
-    min-height: 100vh;
-    max-width: 1160px;
+    .page {
+      grid-template-columns: 1fr 1fr;
+      padding: 0 48px;
+      min-height: 100vh;
+      max-width: 1160px;
+    }
+    .left {
+      padding: 80px 60px 80px 0;
+      border-right: 1px solid var(--border);
+      border-bottom: none;
+      min-height: 100vh;
+      max-width: 580px;
+    }
+    .right {
+      padding: 80px 0 80px 60px;
+      max-width: 580px;
+    }
+    .card { padding: 48px; max-width: 480px; }
+    .sub { font-size: 15px; }
+    .card-sub { font-size: 13px; }
+    .consent-label span { font-size: 12px; }
   }
-  .left {
-    padding: 80px 60px 80px 0;
-    border-right: 1px solid var(--border);
-    border-bottom: none;
-    min-height: 100vh;
-    max-width: 580px;
-  }
-  .right {
-    padding: 80px 0 80px 60px;
-    max-width: 580px;
-  }
-  .card {
-    padding: 48px;
-    max-width: 480px;
-  }
-  .sub { font-size: 15px; }
-  .card-sub { font-size: 13px; }
-  .consent-label span { font-size: 12px; }
-}
 
   /* ── Logo ── */
   .logo-area {
@@ -191,22 +188,12 @@
   }
 
   @media (min-width: 1024px) {
-    .slideshow {
-      height: auto;
-      aspect-ratio: 16 / 9;
-    }
+    .slideshow { height: auto; aspect-ratio: 16 / 9; }
   }
 
-  .slide {
-    position: absolute; inset: 0;
-    opacity: 0;
-    transition: opacity 0.9s ease;
-  }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s ease; }
   .slide.active { opacity: 1; }
-  .slide img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-  }
+  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .slide-dots {
     position: absolute;
@@ -237,38 +224,27 @@
 
   .card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    color: var(--ice-bright);
+    font-size: 28px; font-weight: 400;
+    margin-bottom: 8px; color: var(--ice-bright);
   }
   .card-sub {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 28px;
-    line-height: 1.65;
+    font-size: 14px; color: var(--muted);
+    margin-bottom: 28px; line-height: 1.65;
   }
 
   /* ── Form ── */
   .field { position: relative; margin-bottom: 18px; }
   .field label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
+    display: block; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
   }
   .field input {
-    width: 100%;
-    padding: 13px 16px;
+    width: 100%; padding: 13px 16px;
     background: rgba(8,17,31,0.7);
-    border: 1px solid var(--border);
-    border-radius: 3px;
+    border: 1px solid var(--border); border-radius: 3px;
     color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 300;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300;
     outline: none;
     transition: border-color 0.2s, background 0.2s;
     -webkit-appearance: none;
@@ -286,85 +262,59 @@
   .custom-check {
     width: 16px; height: 16px;
     flex-shrink: 0; margin-top: 2px;
-    border: 1px solid rgba(197,223,240,0.4);
-    border-radius: 2px;
+    border: 1px solid rgba(197,223,240,0.4); border-radius: 2px;
     background: rgba(8,17,31,0.7);
     display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s, border-color 0.2s;
-    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s; cursor: pointer;
   }
   .custom-check::after {
-    content: '';
-    display: none;
+    content: ''; display: none;
     width: 9px; height: 5px;
-    border-left: 2px solid var(--navy);
-    border-bottom: 2px solid var(--navy);
+    border-left: 2px solid var(--navy); border-bottom: 2px solid var(--navy);
     transform: rotate(-45deg) translateY(-1px);
   }
-  .consent-label input[type="checkbox"]:checked + .custom-check {
-    background: var(--gold);
-    border-color: var(--gold);
-  }
+  .consent-label input[type="checkbox"]:checked + .custom-check { background: var(--gold); border-color: var(--gold); }
   .consent-label input[type="checkbox"]:checked + .custom-check::after { display: block; }
   .consent-label span { font-size: 13px; line-height: 1.65; color: var(--muted); }
   .consent-label span strong { color: var(--ice); font-weight: 400; }
 
   /* ── Button ── */
   .btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 16px;
-    background: var(--gold);
-    border: none; border-radius: 3px;
+    width: 100%; margin-top: 20px; padding: 16px;
+    background: var(--gold); border: none; border-radius: 3px;
     color: var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px; font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    position: relative; overflow: hidden;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; position: relative; overflow: hidden;
     transition: opacity 0.2s, transform 0.15s;
   }
   .btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
   .btn:active:not(:disabled) { transform: none; }
   .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  .btn-loading {
-    display: none;
-    position: absolute; inset: 0;
-    align-items: center; justify-content: center;
-  }
+  .btn-loading { display: none; position: absolute; inset: 0; align-items: center; justify-content: center; }
   .btn.loading .btn-text { opacity: 0; }
   .btn.loading .btn-loading { display: flex; }
 
   .spinner {
     width: 16px; height: 16px;
-    border: 2px solid rgba(8,17,31,0.25);
-    border-top-color: var(--navy);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
+    border: 2px solid rgba(8,17,31,0.25); border-top-color: var(--navy);
+    border-radius: 50%; animation: spin 0.7s linear infinite;
   }
 
-  .error-msg {
-    display: none;
-    font-size: 12px; color: #f08080;
-    margin-top: 12px; text-align: center;
-  }
+  .error-msg { display: none; font-size: 12px; color: #f08080; margin-top: 12px; text-align: center; }
 
   /* ── Success ── */
   .success-panel { display: none; text-align: center; padding: 12px 0; }
   .success-icon {
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    border: 1px solid var(--gold);
-    background: rgba(201,169,110,0.1);
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 1px solid var(--gold); background: rgba(201,169,110,0.1);
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 20px; font-size: 22px;
   }
   .success-panel h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 26px; font-weight: 400;
-    margin-bottom: 10px; color: var(--ice-bright);
+    font-size: 26px; font-weight: 400; margin-bottom: 10px; color: var(--ice-bright);
   }
   .success-panel p { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
@@ -372,9 +322,7 @@
   footer {
     position: relative; z-index: 2;
     text-align: center; padding: 24px;
-    font-size: 11px;
-    color: rgba(197,223,240,0.2);
-    letter-spacing: 0.05em;
+    font-size: 11px; color: rgba(197,223,240,0.2); letter-spacing: 0.05em;
   }
 
   @keyframes fadeUp {
@@ -403,6 +351,25 @@
       <span class="headline-main">Winter Abroad<br>at Yonsei</span>
       <span class="headline-sub">Winter in Seoul awaits you.</span>
     </h1>
+
+    <!-- Homepage button -->
+    <div style="margin-top:20px;margin-bottom:4px;opacity:0;animation:fadeUp 0.9s ease forwards 0.35s;">
+      <a href="https://winter.yonsei.ac.kr" target="_blank"
+         style="display:inline-flex;align-items:center;gap:10px;
+                padding:13px 28px;
+                background:var(--gold);
+                color:var(--navy);
+                font-family:'DM Sans',sans-serif;
+                font-size:13px;font-weight:500;
+                letter-spacing:0.1em;text-transform:uppercase;
+                text-decoration:none;
+                border-radius:3px;"
+         onmouseover="this.style.opacity='0.85'"
+         onmouseout="this.style.opacity='1'">
+        Visit WAY Homepage
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
 
     <p class="sub">
       WAY is taking a short pause.
@@ -530,7 +497,6 @@
 
 <!-- Form submission -->
 <script>
-  // ▼ Apps Script 배포 URL로 교체해주세요
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxa51boLJRhdAJ3VJcrM84JolUHcGy1Hzlkx9E5bXDkiZh71pVWQ0uq51AmcWBkH6p0/exec';
 
 document.getElementById('interestForm').addEventListener('submit', async function(e) {
